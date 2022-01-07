@@ -19,7 +19,7 @@ renderer.setClearColor( 0xB7C3F3, 1 )
 const loader = new THREE.GLTFLoader()
 let doll
 
-const start_position = 6
+const start_position = 7
 const end_position = -start_position
 
 const text = document.querySelector('.text')
@@ -138,19 +138,43 @@ async function delay(ms){
     return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-const player1 = new Player("Player 1", .25, .3, 0xD1FFC6)
-const player2 = new Player("Player 2", .25, -.3, 0xFFCFD2)
+const player1 = new Player("player1", .25, 1.5, 0xf8544e)
+const player2 = new Player("player2", .25, .9, 0xff8046)
+const player3 = new Player("player3", .25, -.0, 0xFFFF00)
+const player4 = new Player("player4", .25, -.6, 0x7afa73)
+const player5 = new Player("player5", .25, -1.2, 0x3bcffc)
+const player6 = new Player("player6", .25, -2.1, 0xc526ed)
 
 const players = [
     {
         player: player1,
-        key: "ArrowUp",
-        name: "Player 1"
+        key: "q",
+        name: "player1"
     },
     {
         player: player2,
-        key: "w",
-        name: "Player 2"
+        key: "z",
+        name: "player2"
+    },
+    {
+        player: player3,
+        key: "=",
+        name: "player3"
+    },
+    {
+        player: player4,
+        key: "/",
+        name: "player4"
+    },
+    {
+        player: player5,
+        key: "*",
+        name: "player5"
+    },
+    {
+        player: player6,
+        key: "Enter",
+        name: "player6"
     }
 ]
 
@@ -211,23 +235,46 @@ function animate(){
 }
 animate()
 
-window.addEventListener( "keydown", function(e){
+window.addEventListener("keydown", function(e){
+    console.log('!!!', e.key)
     if(gameStat != "started") return
     let p = players.find(player => player.key == e.key)
     if(p){
         p.player.run()
     }
 })
-window.addEventListener( "keyup", function(e){
+window.addEventListener("keyup", function(e){
     let p = players.find(player => player.key == e.key)
     if(p){
         p.player.stop()
     }
 })
 
-window.addEventListener( 'resize', onWindowResize, false )
+window.addEventListener('resize', onWindowResize, false )
 function onWindowResize(){
     camera.aspect = window.innerWidth / window.innerHeight
     camera.updateProjectionMatrix()
     renderer.setSize( window.innerWidth, window.innerHeight )
 }
+window.addEventListener('load', () => {
+    console.log('load')
+    window.playerName = {}
+    const player1Name = prompt('player1 名字: ', '一號參賽者')
+    window.playerName.player1 = player1Name
+    document.querySelector('#player1 span').innerText = player1Name
+    const player2Name = prompt('player2 名字: ', '二號參賽者')
+    window.playerName.player2 = player2Name
+    document.querySelector('#player2 span').innerText = player2Name
+    const player3Name = prompt('player3 名字: ', '三號參賽者')
+    window.playerName.player3 = player3Name
+    document.querySelector('#player3 span').innerText = player3Name
+    const player4Name = prompt('player4 名字: ', '四號參賽者')
+    window.playerName.player4 = player4Name
+    document.querySelector('#player4 span').innerText = player4Name
+    const player5Name = prompt('player5 名字: ', '五號參賽者')
+    window.playerName.player5 = player5Name
+    document.querySelector('#player5 span').innerText = player5Name
+    const player6Name = prompt('player6 名字: ', '六號參賽者')
+    window.playerName.player6 = player6Name
+    document.querySelector('#player6 span').innerText = player6Name
+})

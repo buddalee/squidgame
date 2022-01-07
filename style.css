@@ -97,3 +97,37 @@ button{
     position: fixed;
     top: 10px;right: 10px;
 }
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+}
+.label {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#player1.label {
+    background-color: #f8544e;
+}
+#player2.label {
+    background-color: #ff8046;
+}
+#player3.label {
+    background-color: #FFFF00;
+}
+#player4.label {
+    background-color: #7afa73;
+}
+#player5.label {
+    background-color: #3bcffc;
+}
+#player6.label {
+    background-color: #c526ed;
+}
