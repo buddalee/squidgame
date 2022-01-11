@@ -26,6 +26,9 @@ function setupCanvas() {
    canvas.width = 370;
    canvas.style.width = `${canvas.width}px`;
    canvas.style.height = `${canvas.height}px`;
+   // Set actual size in memory (scaled to account for extra pixel density).
+   var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
+   ctx.scale(scale, scale);
    ctx.lineWidth = 15;
    ctx.lineCap = 'round';
 }
