@@ -20,6 +20,10 @@ let prevX = null;
 let prevY = null;
 let pixelsShape = 0;
 
+//musics
+const bgMusic = new Audio('./music/bg.mp3')
+bgMusic.loop = true
+
 /* Set up the size and line styles of the canvas */
 function setupCanvas() {
    canvas.height = 370;
@@ -31,10 +35,12 @@ function setupCanvas() {
    ctx.scale(scale, scale);
    ctx.lineWidth = 15;
    ctx.lineCap = 'round';
+
 }
 
 /* Triangle shape */
 function drawTriangle() {
+   bgMusic.play()
    gameStart.classList.add('hidden');
    ctx.strokeStyle = 'rgb(66, 10, 0)';
    ctx.beginPath();
@@ -50,6 +56,7 @@ function drawTriangle() {
 
 /* Circle shape */
 function drawCircle() {
+   bgMusic.play()
    gameStart.classList.add('hidden');
    ctx.strokeStyle = 'rgb(66, 10, 0)';
    ctx.beginPath();
@@ -63,6 +70,7 @@ function drawCircle() {
 
 /* Star shape */
 function drawStar() {
+   bgMusic.play()
    gameStart.classList.add('hidden');
    ctx.strokeStyle = 'rgb(66, 10, 0)';
 
@@ -100,6 +108,7 @@ function drawStar() {
 
 /* Umbrella Shape */
 function drawUmbrella() {
+   bgMusic.play()
    gameStart.classList.add('hidden');
    ctx.strokeStyle = 'rgb(66, 10, 0)';
 

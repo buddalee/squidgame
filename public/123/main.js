@@ -19,7 +19,7 @@ renderer.setClearColor( 0xB7C3F3, 1 )
 const loader = new THREE.GLTFLoader()
 let doll
 
-const start_position = 7
+const start_position = 6
 const end_position = -start_position
 
 const text = document.querySelector('.text')
@@ -138,17 +138,59 @@ async function delay(ms){
     return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-const player1 = new Player("player1", .25, 1.5, 0xf8544e)
-const player2 = new Player("player2", .25, .9, 0xff8046)
-const player3 = new Player("player3", .25, -.0, 0xFFFF00)
-const player4 = new Player("player4", .25, -.6, 0x7afa73)
-const player5 = new Player("player5", .25, -1.2, 0x3bcffc)
-const player6 = new Player("player6", .25, -2.1, 0xc526ed)
+// const player1 = new Player(window.playerName.player1, .25, 1.5, 0xf8544e)
+// const player2 = new Player(window.playerName.player2, .25, .9, 0xff8046)
+// const player3 = new Player(window.playerName.player3, .25, -.0, 0xFFFF00)
+// const player4 = new Player(window.playerName.player4, .25, -.6, 0x7afa73)
+// const player5 = new Player(window.playerName.player5, .25, -1.2, 0x3bcffc)
+// const player6 = new Player(window.playerName.player6, .25, -2.1, 0xc526ed)
 
-const players = [
+// const players = [
+//     {
+//         player: player1,
+//         key: "1",
+//         name: "player1"
+//     },
+//     {
+//         player: player2,
+//         key: "z",
+//         name: "player2"
+//     },
+//     {
+//         player: player3,
+//         key: "=",
+//         name: "player3"
+//     },
+//     {
+//         player: player4,
+//         key: "/",
+//         name: "player4"
+//     },
+//     {
+//         player: player5,
+//         key: "*",
+//         name: "player5"
+//     },
+//     {
+//         player: player6,
+//         key: "Enter",
+//         name: "player6"
+//     }
+// ]
+let players = []
+const TIME_LIMIT = 20
+async function init(){
+    const player1 = new Player(window.playerName.player1, .25, 1.5, 0xf8544e)
+const player2 = new Player(window.playerName.player2, .25, .9, 0xff8046)
+const player3 = new Player(window.playerName.player3, .25, -.0, 0xFFFF00)
+const player4 = new Player(window.playerName.player4, .25, -.6, 0x7afa73)
+const player5 = new Player(window.playerName.player5, .25, -1.2, 0x3bcffc)
+const player6 = new Player(window.playerName.player6, .25, -2.1, 0xc526ed)
+
+players = [
     {
         player: player1,
-        key: "q",
+        key: "1",
         name: "player1"
     },
     {
@@ -177,9 +219,6 @@ const players = [
         name: "player6"
     }
 ]
-
-const TIME_LIMIT = 15
-async function init(){
     await delay(500)
     text.innerText = "Starting in 3"
     await delay(500)
@@ -251,13 +290,16 @@ window.addEventListener("keyup", function(e){
 })
 
 window.addEventListener('resize', onWindowResize, false )
+
 function onWindowResize(){
+    console.log('調整視窗大小')
     camera.aspect = window.innerWidth / window.innerHeight
     camera.updateProjectionMatrix()
     renderer.setSize( window.innerWidth, window.innerHeight )
 }
 window.addEventListener('load', () => {
     console.log('load')
+    onWindowResize()
     window.playerName = {}
     const player1Name = prompt('player1 名字: ', '一號參賽者')
     window.playerName.player1 = player1Name
@@ -277,4 +319,4 @@ window.addEventListener('load', () => {
     const player6Name = prompt('player6 名字: ', '六號參賽者')
     window.playerName.player6 = player6Name
     document.querySelector('#player6 span').innerText = player6Name
-})
+}, false)
