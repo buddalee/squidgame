@@ -1,10 +1,10 @@
 /* Prepare canvas */
 const viewportWidth = window.innerWidth;
-const container = document.querySelector('.container');
+const container = document.querySelector('.container.container-canvas');
 const bounds = container.getBoundingClientRect();
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
-
+console.log('bounds: ', bounds)
 const buttonTriangle = document.querySelector('.game__button-triangle');
 const buttonCircle = document.querySelector('.game__button-circle');
 const buttonStar = document.querySelector('.game__button-star');
@@ -30,9 +30,6 @@ function setupCanvas() {
    canvas.width = 370;
    canvas.style.width = `${canvas.width}px`;
    canvas.style.height = `${canvas.height}px`;
-   // Set actual size in memory (scaled to account for extra pixel density).
-   var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
-   ctx.scale(scale, scale);
    ctx.lineWidth = 15;
    ctx.lineCap = 'round';
 
@@ -144,7 +141,12 @@ function drawArc(x, y, radius, start, end, counterClockwise = true) {
 /* Determine X and Y coordinates of mouse */
 function handleMouseMove(e) {
    const x = e.clientX - bounds.left;
+   // const x = e.clientX - 775;
    const y = e.clientY - bounds.top;
+   // const y = e.clientY - 48;
+   // console.log('x: ', x)
+   // console.log('y: ', y)
+
    /* Only paint when user is holding mouse down */
    if (mouseDown) {
       paint(x, y);
@@ -225,7 +227,7 @@ function evaluatePixels() {
       //console.log(`Pixels Trace: ${pixelsTrace}`);
       let pixelDifference = pixelsTrace / pixelsShape;
       /* User has scored at last 50% but not drawn too much (especially on mobile) */
-      if (pixelDifference >= 0.75 && pixelDifference <= 1) {
+      if (pixelDifference >= 0.7 && pixelDifference <= 1) {
          score.textContent = `SUCCESS - You scored ${Math.round(pixelDifference * 100)}%`;
       } else {
          score.textContent = `FAILURE - You cut ${Math.round(pixelDifference * 100)}%`;
