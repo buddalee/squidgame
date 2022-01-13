@@ -4,7 +4,7 @@ const container = document.querySelector('.container.container-canvas');
 const bounds = container.getBoundingClientRect();
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
-console.log('bounds: ', bounds)
+// console.log('bounds: ', bounds)
 const buttonTriangle = document.querySelector('.game__button-triangle');
 const buttonCircle = document.querySelector('.game__button-circle');
 const buttonStar = document.querySelector('.game__button-star');
@@ -20,6 +20,10 @@ let prevX = null;
 let prevY = null;
 let pixelsShape = 0;
 
+function randomIntFromInterval(min, max) { // min and max included 
+   return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 //musics
 const bgMusic = new Audio('./music/bg.mp3')
 bgMusic.loop = true
@@ -32,7 +36,6 @@ function setupCanvas() {
    canvas.style.height = `${canvas.height}px`;
    ctx.lineWidth = 15;
    ctx.lineCap = 'round';
-
 }
 
 /* Triangle shape */
@@ -237,15 +240,34 @@ function evaluatePixels() {
 
 /* Clear all elements from the canvas */
 function clearCanvas() {
-   ctx.clearRect(0, 0, canvas.width, canvas.height);
-   gameStart.classList.remove('hidden');
-   mouseDown = false;
-   startedTurn = false;
-   brokeShape = false;
-   score.textContent = '';
-   prevX = null;
-   prevY = null;
-   pixelsShape = 0;
+   const number = randomIntFromInterval(1, 4)
+   console.log('number', number)
+   switch (number) {
+      case 1:
+         drawTriangle()
+         break;
+      case 2:
+         drawCircle()
+         break;
+      case 3:
+         drawStar()
+         break;
+      case 4:
+         drawUmbrella()
+         break;
+      default:
+         break;
+   }
+
+   // ctx.clearRect(0, 0, canvas.width, canvas.height);
+   // gameStart.classList.remove('hidden');
+   // mouseDown = false;
+   // startedTurn = false;
+   // brokeShape = false;
+   // score.textContent = '';
+   // prevX = null;
+   // prevY = null;
+   // pixelsShape = 0;
 }
 
 /* Event Handlers for drawing on the canvas */
