@@ -9,7 +9,7 @@
 #slot-past-value {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  /* width: 100%; */
   padding: 0px 50px;
   font-size: 50px;
   height: 40vh;

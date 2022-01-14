@@ -17,7 +17,7 @@ function go(tens,units){
 	const value = tens * 10 + units
 	console.log('value: ', tens * 10 + units)
 
-	if (pastValues.find(val => val === value)) {
+	if (pastValues.find(val => val === value) || value === 0 || value > 75) {
 		go(randomIntFromInterval(0, 7), randomIntFromInterval(0, 9));
 	} else {
 		pastValues.push(value)
