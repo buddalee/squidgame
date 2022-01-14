@@ -105,6 +105,7 @@ button{
     display: flex;
 }
 .label {
+    position: relative;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -134,4 +135,50 @@ button{
 }
 #player6.label {
     background-color: #c526ed;
+}
+
+:root {
+    --borderWidth: 7px;
+    --height: 24px;
+    --width: 12px;
+    --borderColor: gainsboro;
+}
+
+.pass {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    display: inline-block;
+    transform: rotate(45deg);
+    height: var(--height);
+    width: var(--width);
+    border-bottom: var(--borderWidth) solid var(--borderColor);
+    border-right: var(--borderWidth) solid var(--borderColor);
+    display: none;
+}  
+.error {
+    width: 15px;
+    height: 15px;
+    margin: auto;
+    position: absolute;
+    margin-left: 32px;
+    top: 0;
+    right: -4px;
+    display: none;
+}
+.error::before,
+.error::after {
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 7px;
+    top: 0px;
+    right: 15px;
+    background: gainsboro;
+}
+.error::before {
+    transform: rotate(45deg);
+}
+.error::after {
+    transform: rotate(-45deg);
 }

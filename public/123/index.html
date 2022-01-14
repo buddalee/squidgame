@@ -39,7 +39,7 @@
                 依畫面單一顏色代表一位參賽者.依顏色順序排列下去當個參賽者序號
                 <br/>
                 <br/>
-                <img width="1235" height="371" src='./img/keyboard-layout.png' />
+                <img style="width:100%" width="1235" height="371" src='./img/keyboard-layout.png' />
                 <br/>
                  <span style="color:#f8544e">Player 1</span> 請按壓 <b>1</b>按鍵 <br/>
                 <span style="color:#ff8046">Player 2</span>請按壓 <b> z </b>按鍵 <br/>
@@ -56,12 +56,31 @@
         </div>
     </div>
     <div class='footer'>
-       <div id='player1' class='label'><span></span></div>
-       <div id='player2' class='label'><span></span></div>
-       <div id='player3' class='label'><span></span></div>
-       <div id='player4' class='label'><span></span></div>
-       <div id='player5' class='label'><span></span></div>
-       <div id='player6' class='label'><span></span></div>
+       <div id='player1' class='label'>
+           <div class="pass"></div>
+           <div class="error"></div>
+           <span></span>
+        </div>
+       <div id='player2' class='label'>
+           <div class="pass"></div>
+           <span></span>
+        </div>
+       <div id='player3' class='label'>
+           <div class="pass"></div>
+           <span></span>
+        </div>
+       <div id='player4' class='label'>
+           <div class="pass"></div>
+           <span></span>
+        </div>
+       <div id='player5' class='label'>
+           <div class="pass"></div>
+           <span></span>
+        </div>
+       <div id='player6' class='label'>
+           <div class="pass"></div>
+           <span></span>
+        </div>
     </div>
     <script src="three.min.js"></script>
     <script src="GLTFLoader.js"></script>

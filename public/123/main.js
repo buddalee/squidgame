@@ -69,7 +69,7 @@ createCube({w: .2, h: 1.5, d: 1}, end_position, .4)
 
 
 class Player {
-    constructor(name = "Player", radius = .25, posY = 0, color = 0xffffff){
+    constructor(name = "Player", radius = .25, posY = 0, color = 0xffffff, id){
         const geometry = new THREE.SphereGeometry( radius, 100, 100 )
         const material = new THREE.MeshBasicMaterial( { color } )
         const player = new THREE.Mesh( geometry, material )
@@ -82,6 +82,7 @@ class Player {
             positionX: start_position - .4,
             velocity: 0,
             name,
+            id,
             isDead: false
         }
     }
@@ -103,6 +104,7 @@ class Player {
             this.stop()
             DEAD_PLAYERS++
             loseMusic.play()
+            document.querySelector(`#${this.playerInfo.id} .error`).style.display = 'initial'
             if(DEAD_PLAYERS == players.length){
                 text.innerText = "Everyone lost!!!"
                 gameStat = "ended"
@@ -117,6 +119,7 @@ class Player {
             this.stop()
             SAFE_PLAYERS++
             winMusic.play()
+            document.querySelector(`#${this.playerInfo.id} .pass`).style.display = 'initial'
             if(SAFE_PLAYERS == players.length){
                 text.innerText = "Everyone is safe!!!"
                 gameStat = "ended"
@@ -141,12 +144,12 @@ async function delay(ms){
 let players = []
 const TIME_LIMIT = 25
 async function init(){
-const player1 = new Player(window.playerName.player1, .25, 1.5, 0xf8544e)
-const player2 = new Player(window.playerName.player2, .25, .9, 0xff8046)
-const player3 = new Player(window.playerName.player3, .25, -.0, 0xFFFF00)
-const player4 = new Player(window.playerName.player4, .25, -.6, 0x7afa73)
-const player5 = new Player(window.playerName.player5, .25, -1.2, 0x3bcffc)
-const player6 = new Player(window.playerName.player6, .25, -2.1, 0xc526ed)
+const player1 = new Player(window.playerName.player1, .25, 1.5, 0xf8544e, 'player1')
+const player2 = new Player(window.playerName.player2, .25, .9, 0xff8046, 'player2')
+const player3 = new Player(window.playerName.player3, .25, -.0, 0xFFFF00, 'player3')
+const player4 = new Player(window.playerName.player4, .25, -.6, 0x7afa73, 'player4')
+const player5 = new Player(window.playerName.player5, .25, -1.2, 0x3bcffc, 'player5')
+const player6 = new Player(window.playerName.player6, .25, -2.1, 0xc526ed, 'player6')
 
 players = [
     {
