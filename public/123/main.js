@@ -138,49 +138,10 @@ async function delay(ms){
     return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-// const player1 = new Player(window.playerName.player1, .25, 1.5, 0xf8544e)
-// const player2 = new Player(window.playerName.player2, .25, .9, 0xff8046)
-// const player3 = new Player(window.playerName.player3, .25, -.0, 0xFFFF00)
-// const player4 = new Player(window.playerName.player4, .25, -.6, 0x7afa73)
-// const player5 = new Player(window.playerName.player5, .25, -1.2, 0x3bcffc)
-// const player6 = new Player(window.playerName.player6, .25, -2.1, 0xc526ed)
-
-// const players = [
-//     {
-//         player: player1,
-//         key: "1",
-//         name: "player1"
-//     },
-//     {
-//         player: player2,
-//         key: "z",
-//         name: "player2"
-//     },
-//     {
-//         player: player3,
-//         key: "=",
-//         name: "player3"
-//     },
-//     {
-//         player: player4,
-//         key: "/",
-//         name: "player4"
-//     },
-//     {
-//         player: player5,
-//         key: "*",
-//         name: "player5"
-//     },
-//     {
-//         player: player6,
-//         key: "Enter",
-//         name: "player6"
-//     }
-// ]
 let players = []
-const TIME_LIMIT = 20
+const TIME_LIMIT = 25
 async function init(){
-    const player1 = new Player(window.playerName.player1, .25, 1.5, 0xf8544e)
+const player1 = new Player(window.playerName.player1, .25, 1.5, 0xf8544e)
 const player2 = new Player(window.playerName.player2, .25, .9, 0xff8046)
 const player3 = new Player(window.playerName.player3, .25, -.0, 0xFFFF00)
 const player4 = new Player(window.playerName.player4, .25, -.6, 0x7afa73)
@@ -254,7 +215,7 @@ async function startDall(){
    lookBackward()
    await delay((Math.random() * 1500) + 1500)
    lookForward()
-   await delay((Math.random() * 750) + 750)
+   await delay((Math.random() * 800) + 800)
    startDall()
 }
 
