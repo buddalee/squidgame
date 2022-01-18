@@ -1,14 +1,20 @@
+
 # YEP 尾牙遊戲
 ### 123 木頭人
 
 參考這個教學，延伸加料應用
-[Check Tutorial on Youtube:]((https://youtu.be/7bTuSZ94F6A))
+[Check Tutorial on Youtube](https://youtu.be/7bTuSZ94F6A)
+
 ![](img/messageImage_1642251303229.jpg)
+
 #### [Play Game Here 123 木頭人](https://buddalee.github.io/squidgame/123.html)
 
 ### 椪糖遊戲
 
 用滑鼠 慢慢的 慢慢的 描邊囉
+
+[參考這個教學](https://dev.to/dianale_dev/creating-squid-games-dalgona-using-canvas-39m4)，延伸加料又用
+
 ![](img/messageImage_1642251239408.jpg)
 ![](img/messageImage_1642251263198.jpg)
 
